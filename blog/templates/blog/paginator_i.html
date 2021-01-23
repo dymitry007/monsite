@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+{%load static%}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{%static 'assets/css/main.css' %}" />
+    <link rel="stylesheet" href="{%static 'assets/css/style.css' %}" />
+    <link rel="stylesheet" href="{%static 'assets/css/bootstrap.min.css' %}" />
+
+</head>
+
+<body>
+    <nav aria-label="...">
+        <div class="">
+
+            <ul class="pagination">
+                {% if page_obj.has_previous %}
+                <li class="page-item">
+                    <a href="?page=1" class="page-link; button">RETOUR </a>
+                </li>
+                <li class="page-item">
+                    <a href="?page={{ page_obj.previous_page_number }}" class="actions"><span
+                            class="page-link; button">PRECEDENT</span></a>
+                </li>
+                {%endif%}
+                {% if page_obj.has_next %}
+                <li class="page-item"><a class="page-link; button"
+                        href="?page={{ page_obj.next_page_number }}">SUIVENT</a></li>
+
+                {%endif%}
+            </ul>
+        </div>
+    </nav>
+
+    <script src="{% static 'assets/js/jquery.min.js'%}"></script>
+    <script src="{% static 'assets/js/skel.min.js'%}"></script>
+    <script src="{% static 'assets/js/util.js' %}"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+
+</html>

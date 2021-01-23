@@ -1,0 +1,30 @@
+{% extends 'blog/base.html'%}
+{% load static%}
+{%block content%}
+
+<!-- Section -->
+<section style="max-width: 900px; margin: 0 auto;">
+    <header class="major">
+
+        <h2>ARTICLES RECENTS</h2>
+    </header>
+    <div class="posts">
+        {%for x in page_obj%}
+        <article>
+            <a href="{% url 'blog:detail' x.pk%}" class="image"><img src="{{x.image.url}}" alt="" /></a>
+            <p>{{x.description}}</p>
+            <p>
+            <ul class="actions">
+                <li><a href="{% url 'blog:detail' x.pk%}" class="button">En SAVOIR PLUS</a></li>
+            </ul>
+            </p>
+            <p>Auteur: <strong>{{x.auteur}}</strong> / {{x.date}}</p>
+        </article>
+        {%endfor%}
+</section>
+
+<!--Pagination Page-->
+{%include 'blog/paginator_i.html'%}
+</div>
+</div>
+{%endblock%}

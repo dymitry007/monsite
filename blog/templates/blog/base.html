@@ -1,0 +1,149 @@
+<!DOCTYPE HTML>
+{% load static %}
+<html lang="fr">
+
+<head>
+  <title>Gagner de l'argent sur internet</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="{%static 'assets/css/main.css' %}" />
+  <link rel="stylesheet" href="{%static 'assets/css/style.css' %}" />
+  <link rel="stylesheet" href="{%static 'assets/css/bootstrap.min.css' %}" />
+
+</head>
+
+<body>
+
+  <div id="wrapper">
+    <!-- Principal -->
+    <div id="main">
+      <div class="inner">
+
+        <!-- Entête -->
+        <header id="header">
+          <a href="{% url 'blog:home' %}" class="logo"><strong style="font-size: xx-large;">DYMITRY
+            ZOORA</strong></a>
+          <ul class="icons">
+            <li><a href="" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+            <li><a href="#" class="icon fa-whatsapp"><span class="label">Whatsapp</span></a></li>
+            <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+          </ul>
+        </header>
+
+        <!--block de contenu-->
+        {% block content %}
+        {% endblock%}
+
+        <!-- Sidebar -->
+        <div id="sidebar">
+          <div class="inner">
+
+            <!-- champs de recherche -->
+            <section id="search" class="alt">
+              <form method="get" action="{% url 'blog:search' %}">
+                <input type="text" name="query" id="query" placeholder="Rechercher"
+                class="form-control" />
+              </section>
+
+              <!-- Menu -->
+              <nav id="menu">
+                <header class="major">
+                  <h2>
+                    <a href="{%url 'blog:home' %}">Menu</a></h2>
+                </header>
+                <ul>
+                  <li><a href="{% url 'blog:home'%}">Accueil</a></li>
+                  <li><a href="{% url 'blog:blog'%}">Blog</a></li>
+                  <li>
+                    <span class="opener">Categorie</span>
+                    <ul>
+                      <li><a href="#">business</a></li>
+                      <li><a href="#">affiliations</a></li>
+                      <li><a href="#">programmations</a></li>
+                    </ul>
+                  </li>
+                </nav>
+
+                <!--section d'articles-->
+                <section>
+                  <header class="major">
+                    <h2>TOUS LES ARTIClES</h2>
+                  </header>
+                  {%for x in liste%}
+                  <header class="major">
+                    <h2><a href="{% url 'blog:detail' x.pk%}">{{x.title}}</a></h2>
+                  </header>
+                  <div class="mini-posts">
+                    <article>
+                      <a href="{% url 'blog:detail' x.pk%}">
+                        <img src="{{x.image.url}}" style="width: 300px;" />
+                      </a>
+                    </article>
+                  </div>
+                  {%endfor%}
+                </section>
+                <!--Pied-->
+                <footer id="footer">
+
+
+
+
+                  <section>
+                    <div>
+                      <header class="major">
+                        <h1>Salut, Je Suis Dymitry<br />
+                          ZOORA</h1>
+                      </header>
+
+                      <p style="text-align: justify;">
+                        Freelance Et Developpeur Web Occasionnel
+                        Amoureux Du Web Et De Nouvelles Technologies
+                        J'intervient Dans Le Refferenciement Naturel
+                        ET Du Marketing Digital.
+                      </p>
+
+                    </div>
+                    <span>
+                      <img src="{% static 'images/d.jpg'%}" class="card-img-top" alt="Admin Image" />
+
+                    </span>
+                    <br>
+                    <br>
+
+                    <!--Mes Coordonnées-->
+                    <section>
+                      <header class="major">
+                        <h2>PRENDRE CONTACT</h2>
+                      </header>
+                      <ul class="contact">
+                        <li class="fa-envelope-o"><a href="#mail_to:dymitryzoora79@gmail.com">ENVOYER
+                          MOI UN
+                          MAIL</a></li>
+                        <li class="fa-phone" href>(+226) 77963171</li>
+                      </ul>
+                    </section>
+                    <hr>
+                    <p class="copyright">
+                      &copy; Untitled. All rights reserved. Demo Images: <a
+                        href="https://unsplash.com">Unsplash</a>. Design: <a
+                        href="https://html5up.net">HTML5
+                        UP</a>.
+                    </p>
+                    </section>
+                    </footer>
+
+
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <script src="{% static 'assets/js/jquery.min.js'%}"></script>
+          <script src="{% static 'assets/js/skel.min.js'%}"></script>
+          <script src="{% static 'assets/js/util.js' %}"></script>
+          <script src="{% static 'assets/js/main.js' %}"></script>
+
+        </body>
+
+      </html>

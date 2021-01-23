@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%static 'assets/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{%static 'assets/css/main.css' %}" />
+
+    <title>L'argent en ligne</title>
+</head>
+
+<body>
+
+    <nav aria-label="...">
+        <div class="">
+
+            <ul class="pagination">
+                {% if page.has_previous %}
+                <li class="page-item">
+                    <a href="?page=1" class="page-link; button">RETOUR </a>
+                </li>
+                <li class="page-item">
+                    <a href="?page={{ page.previous_page_number }}" class="actions"><span
+                            class="page-link; button">PRECEDENT</span></a>
+                </li>
+                {%endif%}
+                {% if page.has_next %}
+                <li class="page-item"><a class="page-link; button" href="?page={{ page.next_page_number }}">SUIVENT</a>
+                </li>
+
+                {%endif%}
+            </ul>
+        </div>
+    </nav>
+
+    <script src="{% static 'assets/js/jquery.min.js'%}"></script>
+    <script src="{% static 'assets/js/skel.min.js'%}"></script>
+    <script src="{% static 'assets/js/util.js' %}"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE HTML>
+{%load static%}
+<html>
+
+<head>
+    <title>Travailler sur le net</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="{%static 'assets/css/main.css'%}" />
+    <link rel="stylesheet" href="{%static 'assets/css/bootstrap.min.css'%}" />
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <div id="main">
+            <div class="inner">
+                <header id="header">
+                    <a href="{% url 'blog:home' %}" class="logo"><strong style="font-size: xx-large;">DYMITRY
+                            ZOORA</strong></a>
+                    <ul class="icons">
+                        <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                        <li><a href="#" class="icon fa-whatsapp"><span class="label">Whatsapp</span></a></li>
+                        <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+
+                    </ul>
+                </header>
+
+                <!-- Section -->
+
+                <section style="max-width: 900px; margin: 0 auto;">
+                    <div class="container">
+
+                        {%if article%}
+                        <header class="major">
+                            <h3 style="text-align: center; color: blue;">LE NOMBRE DE RESULTATS TROUVES :
+                                {{article.count}}</h3>
+                        </header>
+                        <article>
+                            <ul>
+                                {%for k in article%}
+                                <li style="list-style: upper-roman;">
+                                    <a href="{% url 'blog:detail' k.pk%}" class="image">
+                                        <strong
+                                            style="color: rgba(255, 0, 0, 0.931); font-size: x-large;">{{k.title}}</strong>
+                                    </a>
+                                </li>
+                                <br><br>
+                                <p>{{k.description}}</p>
+                                <hr>
+                                {%endfor%}
+                            </ul>
+                            {%else%}
+                            <header class="major">
+                                <h3>
+                                    <strong style="color: red;">
+                                        AUCUN RESULTAT TROUVE :
+
+                                    </strong>
+                                </h3>
+                            </header>
+                            <img src="{%static 'images/d1.jpeg'%}">
+                            {%endif%}<br>
+
+
+                        </article>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div id="sidebar">
+            <div class="inner">
+
+                <!-- Search -->
+                <section id="search" class="alt">
+                    <form method="get" action="{% url 'blog:search' %}">
+                        <input type="text" name="query" id="query" placeholder="Rechercher" class="form-control" />
+                </section>
+
+                <!-- Menu -->
+                <nav id="menu">
+                    <header class="major">
+                        <h2>Menu</h2>
+                    </header>
+                    <ul>
+                        <li><a href="{%url 'blog:home' %}">acceuil</a></li>
+                        <li><a href="{%url 'blog:blog' %}">blog</a></li>
+                        <li>
+                            <span class="opener">categories</span>
+                            <ul>
+                                <li><a href="#">business</a></li>
+                                <li><a href="#">affiliations</a></li>
+                                <li><a href="#">programmations</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+
+                <!-- Section -->
+
+
+                <!-- Section -->
+
+
+                <!-- Footer -->
+                <footer id="footer">
+
+                    <section>
+                        <div>
+                            <header>
+                                <h1>Salut, Je Suis Dymitry<br />
+                                    ZOORA</h1>
+                            </header>
+                            <p style="text-align: justify;">
+                                Freelance Et Developpeur Web Occasionnel
+                                Amoureux Du Web Et De Nouvelles Technologies
+                                J'intervient Dans Le Refferenciement Naturel
+                                ET Du Marketing Digital.
+                            </p>
+
+                        </div>
+                        <span>
+                            <img src="{% static 'images/d.jpg'%}" class="card-img-top" alt="Admin Image" />
+
+                        </span>
+                        <br>
+                        <br>
+
+                        <!--Mes Coordonnées-->
+                        <section>
+                            <header class="major">
+                                <h2>PRENDRE CONTACT</h2>
+                            </header>
+                            <ul class="contact">
+                                <li class="fa-envelope-o"><a href="#mail_to:dymitryzoora79@gmail.com">ENVOYER
+                                        MOI UN
+                                        MAIL</a></li>
+                                <li class="fa-phone" href>(+226) 77963171</li>
+                            </ul>
+                        </section>
+                        <hr>
+                        <p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a
+                                href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5
+                                UP</a>.</p>
+                </footer>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="{% static 'assets/js/jquery.min.js'%}"></script>
+    <script src="{% static 'assets/js/skel.min.js'%}"></script>
+    <script src="{%static 'assets/js/util.js'%}"></script>
+    <script src="{%static 'assets/js/main.js'%}"></script>
+</body>
+</html>
